@@ -1,17 +1,17 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import Person from './Person'
+import Planet from './Planet'
 
-const fetchPeople = async () => {
-    const res = await fetch('http://swapi.dev/api/people/');
+const fetchPlanets = async () => {
+    const res = await fetch('http://swapi.dev/api/planets/');
     return res.json();   
 }
-const People = () => {
-    const { data, status } = useQuery('people', fetchPeople)
+const Planets = () => {
+    const { data, status } = useQuery('planets', fetchPlanets)
 
     return ( 
         <div>
-            <h2>People</h2>
+            <h2>Planets</h2>
             {status === 'error' && (
                 <div>Error fetching data</div>
             )}
@@ -20,11 +20,11 @@ const People = () => {
             )}
             {status === 'success' && (
                 <div>
-                    {data.results.map(person => <Person key={person.name} person={person}/>)}
+                    {data.results.map(planet => <Planet key={planet.name} planet={planet}/>)}
                 </div>
             )}
         </div>
      );
 }
  
-export default People;
+export default Planets;

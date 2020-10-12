@@ -1,12 +1,14 @@
 import React from 'react';
 
 
-const Planets = () => {
+const Planet = ({ planet }) => {
     return ( 
-        <div>
-            <h2>Planets</h2>
+        <div className="card">
+            <h3>{planet.name}</h3>
+            <p>Population - { planet.population }</p>
+            <p>Terrain - { planet.terrain }</p>
         </div>
      );
 }
  
-export default Planets;
+export default Planet;
